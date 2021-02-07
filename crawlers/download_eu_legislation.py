@@ -58,7 +58,7 @@ def get_file_by_id(celex_id, langs=('EN',)):
             content = requests.get(url).text
             if 'The requested document does not exist.' in content:
                 print(celex_id + f' DOES NOT EXIST IN {lang}')
-                raise Exception
+                continue
             with open(filename, 'w', encoding='utf-8') as file:
                 content = clean_text(content)
                 if "docHtml" in content:
@@ -67,8 +67,8 @@ def get_file_by_id(celex_id, langs=('EN',)):
                 else:
                     cleantext = BeautifulSoup(content, "lxml").text
                 file.write(cleantext)
-        except:
-            print(celex_id + ' ERROR')
+        except Exception as e:
+            print(e, celex_id + ' ERROR')
 
 
 def download_eu_law(languages=('EN',)):
