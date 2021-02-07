@@ -7,4 +7,6 @@
 *.f5
 .idea/
 .ipynb_checkpoints
+data/*download-eu.sh
 data/*
+download-eu.sh

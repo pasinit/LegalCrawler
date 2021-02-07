@@ -89,5 +89,5 @@ def download_eu_law(languages=('EN',)):
 
 
 if __name__ == '__main__':
-    languages = ['EN', 'IT', 'DA']
+    languages = list(langs.values())
     download_eu_law(languages)
