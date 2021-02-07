@@ -7,4 +7,7 @@
 *.f5
 .idea/
 .ipynb_checkpoints
+data/*.env
+.env
+.vscode
 data/*

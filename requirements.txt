@@ -1,6 +1,8 @@
 json-lines
 tqdm
 beautifulsoup4
+requests
+lxml
 # pdftocairo
 # pdftotext
 # mutool
