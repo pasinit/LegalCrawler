@@ -7,7 +7,9 @@
 *.f5
 .idea/
 .ipynb_checkpoints
-data/*.env
+data/*
+download-eu.sh
 .env
 .vscode
 data/*
+slurm-1692872.out
