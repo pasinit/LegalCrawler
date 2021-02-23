@@ -95,7 +95,7 @@ def download_eu_law(languages=('EN',), processed_ids=None):
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
 
-    languages = list(langs.values())
+    languages = ['EN', 'IT'] #list(langs.values())
     
     if not os.path.exists(root_dir):
         os.makedirs(root_dir)

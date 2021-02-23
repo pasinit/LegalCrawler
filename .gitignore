@@ -13,3 +13,4 @@ download-eu.sh
 .vscode
 data/*
 slurm-1692872.out
+data
