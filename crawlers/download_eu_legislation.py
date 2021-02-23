@@ -102,6 +102,7 @@ if __name__ == '__main__':
         ids = set()
         for root, dirs, files in os.walk(root_dir):
             for file in files:
+                file = os.path.join(root, file)
                 with open(file) as lines:
                     l = lines.read().strip()
                     if l.startswith('ERROR'):
