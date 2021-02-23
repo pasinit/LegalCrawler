@@ -74,7 +74,6 @@ def download_eu_law(languages=('EN',), processed_ids=None):
     if processed_ids is None:
         processed_ids = set()
     sparql_query = """http://publications.europa.eu/webapi/rdf/sparql?default-graph-uri=&query=prefix+cdm%3A+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fontology%2Fcdm%23%3E%0D%0A%0D%0Aselect+%3Fcelex_id%0D%0Awhere+%7B%0D%0A%3Feu_act+cdm%3Aresource_legal_id_celex+%3Fcelex_id.%0D%0A%3Feu_act+a+%3Feu_act_type.%0D%0A%3Feu_act+cdm%3Aresource_legal_number_natural+%3Feu_act_number.%0D%0AFILTER%28%3Feu_act_type+IN+%28cdm%3Aregulation%2C+cdm%3Adirective%2C+cdm%3Adecision%29%29%0D%0A%7D&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+"""
-
     try:
         content = requests.get(sparql_query).text
         celex_ids = set([span.text[1:11] for span in BeautifulSoup(
