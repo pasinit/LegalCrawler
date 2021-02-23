@@ -92,18 +92,23 @@ def download_eu_law(languages=('EN',), processed_ids=None):
         pool.starmap(partial(get_file_by_id), [
                      (cid, languages) for cid in celex_ids])
 
-
+import os
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
 
     languages = list(langs.values())
-    
     if not os.path.exists(root_dir):
         os.makedirs(root_dir)
     else:
         ids = set()
         for root, dirs, files in os.walk(root_dir):
             for file in files:
+                with open(file) as lines:
+                    l = lines.read().strip()
+                    if l.startswith('ERROR'):
+                        os.remove(file)
+                        continue
+
                 ids.add(file.replace('.txt', ''))
 
 
